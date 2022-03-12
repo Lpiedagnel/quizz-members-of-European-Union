@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* GLOBAL */
+
+:root {
+    --union-blue: rgb(10, 78, 156);
+    --darker-union-blue: rgb(8, 44, 85);
+    --union-yellow: rgb(239, 229, 0);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    max-width: 750px;
+    text-align: center;
+}
+
+/* STATS */
+
+.informations {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.informations div {
+    border: solid 2px var(--union-blue);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* BUTTONS AND SUBMIT */
+
+.container button, .submit-answers {
+    background-color: var(--union-blue);
+    color: var(--union-yellow);
+    border: none;
+    padding: 20px;
+    width: 200px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 20px auto;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.container button:hover, .submit-answers:hover {
+    background-color: var(--darker-union-blue);
+    cursor: pointer;
+}
+
+.answers-input {
+    border: solid 2px var(--union-blue);
+    padding: 10px;
+    width: 200px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.instructions {
+    font-weight: bold;
+    margin: 25px auto;
+}
+
+.commentary {
+    font-weight: bold;
+}
+
+/* COUNTRIES LIST */
+
+.countries-container {
+    border: solid 2px var(--union-blue);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.countries-container .header-country {
+    color: var(--union-yellow);
+    background-color: var(--darker-union-blue);
+    width: 100%;
+    padding: 5px;
+    font-size: 0.7rem;
+}
+
+.countries-container .answers-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.countries-container .answers-container div {
+    padding: 20px;
+}
+

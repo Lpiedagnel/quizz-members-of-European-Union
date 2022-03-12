@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Nommez tous les pays de l'Union Européenne</h1>
+        <section class="informations">
+            <div>Pays trouvés : <span id="countries-count">0</span> / 27</div>
+            <div>Temps restant : <span id="timer">00:00</span></div>
+        </section>
+        <button id="start-btn">Démarrer le jeu</button>
+        <label for="submit-btn" class="instructions hidden" id="instructions">Ecrivez le nom du pays. Si votre réponse est bonne, le pays s'ajoutera automatiquement dès que vous avez fini d'écrire !</label>
+        <div class="commentary" id="commentary"></div>
+        <input type="text" name="reponse" class="answers-input hidden" id="answers-input">
+        <!-- All countries-->
+        <div class="countries-container">
+            <div class="header-country"><h2>Pays</h2></div>
+            <div class="answers-container" id="answers-container">
+                <!-- Correct answers are rendering here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
