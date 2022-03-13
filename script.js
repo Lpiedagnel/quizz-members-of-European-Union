@@ -1,6 +1,6 @@
-/* Variables */
+/***** VARIABLES ******/
 
-// Inside the DOM
+// INSIDE THE DOCUMENT
 const countriesCount = document.getElementById('countries-count')
 const timer = document.getElementById('timer')
 const startBtn = document.getElementById('start-btn')
@@ -9,15 +9,23 @@ const commentary = document.getElementById('commentary')
 let answersInput = document.getElementById('answers-input')
 const answersContainer = document.getElementById('answers-container')
 
-// Outside the DOM
-
+// OUTSIDE THE DOCUMENT
 const correction = ['ALLEMAGNE', 'AUTRICHE', 'BELGIQUE', 'BULGARIE', 'CHYPRE', 'CROATIE', 'DANEMARK', 'ESPAGNE', 'ESTONIE', 'FINLANDE', 'FRANCE', 'GRÈCE', 'HONGRIE', 'IRLANDE', 'ITALIE', 'LETTONIE', 'LITUANIE', 'LUXEMBOURG', 'MALTE', 'PAYS-BAS', 'POLOGNE', 'PORTUGAL', 'RÉPUBLIQUE-TCHÈQUE', 'ROUMANIE', 'SLOVAQUIE', 'SLOVÉNIE', 'SUÈDE']
 let answers = []
 let time = 180
 
-/* Functions */
 
-// Start game
+/****** FUNCTIONS *******/
+
+/* START THE GAME */
+
+// Event listener to start the game
+startBtn.addEventListener('click', function() {
+    startGame()
+    setInterval(removeTime, 1000)
+})
+
+// Start game function
 function startGame() {
     startBtn.classList.add('hidden')
     answersInput.classList.remove('hidden')
@@ -29,9 +37,7 @@ function startGame() {
     answersInput.addEventListener('input', submitWhileTyping)
 }
 
-
-
-// Remove time each second
+// Remove time each second after start of the game
 function removeTime() {
     // Convert 'time' to minutes and second
     let minutes = parseInt(time / 60, 10)
@@ -45,6 +51,9 @@ function removeTime() {
     timer.innerText = `${minutes}:${secondes}`
     time = time <= 0 ? 0 : time - 1
 }
+
+
+/* SUBMIT, VERIFY AND RENDER FUNCTIONS */
 
 // Functions for Submit
 function submitWhileTyping() {
@@ -67,26 +76,6 @@ function verifiedAnswers(answersValue, correctionValue, alreadySubmit) {
     }
 }
 
-// Render correct answers
-function renderCountries(countryName) {
-    answersContainer.innerHTML += `<div>${countryName}</div>`
-}
-
-// Update countries count
-function updateCountriesCount() {
-    countriesCount.innerText = answers.length
-}
-
-
-/* Event Listener */
-
-startBtn.addEventListener('click', function() {
-    startGame()
-    setInterval(removeTime, 1000)
-})
-
-
-
 // Return commentary
 function returnCommentary(value) {
     if (value === "Good") {
@@ -98,14 +87,26 @@ function returnCommentary(value) {
     } 
 }
 
-// Endgame
+// Render correct answers
+function renderCountries(countryName) {
+    answersContainer.innerHTML += `<div>${countryName}</div>`
+}
+
+// Update countries count
+function updateCountriesCount() {
+    countriesCount.innerText = answers.length
+}
+
+
+/* FINISH THE GAME */
+
+// Endgame function
 function endGame() {
     answersInput.classList.add('hidden')
     instructionsLabel.classList.add('hidden')
     endingMessage(answers.length)
     renderMissingCountries()
 }
-
 
 // Ending message
 function endingMessage(score) {
@@ -123,8 +124,7 @@ function endingMessage(score) {
     }
 }
 
-// Render missing countries
-
+// Render missing countries afer the game is finished
 function renderMissingCountries() {
     for (let i = 0; i < correction.length; i++) {
         if (!answers.includes(correction[i])) {
